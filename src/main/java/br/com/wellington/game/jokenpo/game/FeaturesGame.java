@@ -7,8 +7,8 @@ import br.com.wellington.game.jokenpo.engine.PlayerControl;
 import br.com.wellington.game.jokenpo.engine.keyboard.GameKeyboard;
 import br.com.wellington.game.jokenpo.engine.keyboard.GameListenerKeyboard;
 import br.com.wellington.game.jokenpo.engine.scoreboard.Scoreboard;
-import br.com.wellington.game.jokenpo.utils.ConstantsUtils;
 import br.com.wellington.game.jokenpo.utils.CommonMethod;
+import br.com.wellington.game.jokenpo.utils.ConstantsUtils;
 import lombok.Getter;
 
 public class FeaturesGame implements GameListenerKeyboard {
@@ -20,7 +20,10 @@ public class FeaturesGame implements GameListenerKeyboard {
 
 	protected boolean loop;
 
+	private CommonMethod commonMethod2 = new CommonMethod();
+
 	public FeaturesGame() {
+
 		player = new PlayerControl();
 		npcPlayer = new PlayerControl();
 		npcPlayer.setName(ConstantsUtils.Text.PLAYER_NPC_NAME);
@@ -64,13 +67,13 @@ public class FeaturesGame implements GameListenerKeyboard {
 	public void keyEnter() {
 		if (player.getSpriteData().getWin() == npcPlayer.getSpriteData().getId()) {
 			// venceu a rodada
-			CommonMethod.showEndGameMessage(scoreboard, 1, 0, ConstantsUtils.Text.KEY_ENTER_WIN);
+			commonMethod2.showEndGameMessage(scoreboard, 1, 0, ConstantsUtils.Text.KEY_ENTER_WIN);
 			endGame();
 			return;
 		}
 		if (player.getSpriteData().getLose() == npcPlayer.getSpriteData().getId()) {
 			// perdeu a rodada
-			CommonMethod.showEndGameMessage(scoreboard, 0, 1, ConstantsUtils.Text.KEY_ENTER_DEFEAT);
+			commonMethod2.showEndGameMessage(scoreboard, 0, 1, ConstantsUtils.Text.KEY_ENTER_DEFEAT);
 			endGame();
 			return;
 		}

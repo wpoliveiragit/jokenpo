@@ -7,12 +7,14 @@ import static javax.swing.JOptionPane.showInputDialog;
 import javax.swing.JOptionPane;
 
 import br.com.wellington.game.jokenpo.engine.GameEngine;
+import br.com.wellington.game.jokenpo.utils.CommonMethod;
 import br.com.wellington.game.jokenpo.utils.ConstantsUtils;
 import br.com.wellington.game.jokenpo.utils.InterfaceUtils.StartGame;
-import br.com.wellington.game.jokenpo.utils.CommonMethod;
 
 public class JokenpoGame extends FeaturesGame implements StartGame {
 
+	private CommonMethod commonMethod2 = new CommonMethod();
+	
 	public void start() {
 		while (true) {
 			if (mainMenu()) {
@@ -29,7 +31,7 @@ public class JokenpoGame extends FeaturesGame implements StartGame {
 			return true;
 		}
 
-		load(CommonMethod.checkLengthName(name));
+		load(commonMethod2.checkLengthName(name));
 		return false;
 	}
 

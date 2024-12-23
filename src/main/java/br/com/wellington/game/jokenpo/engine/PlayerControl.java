@@ -1,8 +1,8 @@
 package br.com.wellington.game.jokenpo.engine;
 
 import br.com.wellington.game.jokenpo.utils.ClassUtils.SpriteData;
-import br.com.wellington.game.jokenpo.utils.ConstantsUtils;
 import br.com.wellington.game.jokenpo.utils.CommonMethod;
+import br.com.wellington.game.jokenpo.utils.ConstantsUtils;
 import jplay.Sprite;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,6 +13,8 @@ public class PlayerControl {
 	private @Getter Sprite sprite; // gif do personagem
 	private @Getter SpriteData spriteData;
 
+	private CommonMethod commonMethod2 = new CommonMethod();
+
 	public PlayerControl() {// cria um personagem para o jogo
 		sprite = new Sprite(ConstantsUtils.Path.SPRITE_ROCK_PAPER_SCISSORS, ConstantsUtils.AMOUNT_FRAME);
 		reset("Sem Nome");
@@ -20,7 +22,7 @@ public class PlayerControl {
 
 	public final void reset(String name) {
 		this.name = name;
-		spriteData = CommonMethod.getSpriteData(ConstantsUtils.Id.PAPER);
+		spriteData = commonMethod2.getSpriteData(ConstantsUtils.Id.PAPER);
 	}
 
 	/** Avanca um elemento */
@@ -39,7 +41,7 @@ public class PlayerControl {
 	}
 
 	private void setSprite(int id) {
-		spriteData = CommonMethod.getSpriteData(id);
+		spriteData = commonMethod2.getSpriteData(id);
 		sprite.setSequence(spriteData.getX(), spriteData.getY());
 	}
 
