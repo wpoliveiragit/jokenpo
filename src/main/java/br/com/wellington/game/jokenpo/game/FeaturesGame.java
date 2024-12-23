@@ -2,12 +2,12 @@ package br.com.wellington.game.jokenpo.game;
 
 import static javax.swing.JOptionPane.showMessageDialog;
 
+import br.com.pegasus.game.jokenpo.infra.config.CommonMethod;
 import br.com.wellington.game.jokenpo.engine.GameEngine;
 import br.com.wellington.game.jokenpo.engine.PlayerControl;
 import br.com.wellington.game.jokenpo.engine.keyboard.GameKeyboard;
 import br.com.wellington.game.jokenpo.engine.keyboard.GameListenerKeyboard;
 import br.com.wellington.game.jokenpo.engine.scoreboard.Scoreboard;
-import br.com.wellington.game.jokenpo.utils.CommonMethod;
 import br.com.wellington.game.jokenpo.utils.ConstantsUtils;
 import lombok.Getter;
 

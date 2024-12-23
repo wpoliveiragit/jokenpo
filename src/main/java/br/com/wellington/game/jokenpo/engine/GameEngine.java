@@ -3,9 +3,8 @@ package br.com.wellington.game.jokenpo.engine;
 import java.awt.Color;
 import java.awt.FontMetrics;
 
-import br.com.wellington.game.jokenpo.utils.ClassUtils.CartesianPoint;
+import br.com.pegasus.game.jokenpo.domain.CartesianPoint;
 import br.com.wellington.game.jokenpo.utils.ConstantsUtils;
-import br.com.wellington.game.jokenpo.utils.InterfaceUtils.StartGame;
 import jplay.GameImage;
 import jplay.Keyboard;
 import jplay.Window;
@@ -18,14 +17,13 @@ public final class GameEngine {
 	private static CartesianPoint SIZE;
 	private static Keyboard KEYBOARD;
 
-	public static final void createEngine(Class<?> startingGameClass) throws Exception {
+	public static final void createEngine() throws Exception {
 		BACKGROUND = new GameImage(ConstantsUtils.Path.BACKGROUND);
 		INSTANCE = new Window(BACKGROUND.width, BACKGROUND.height);
 		INSTANCE.setFont(ConstantsUtils.FONT);
 		FONT = INSTANCE.getGraphics().getFontMetrics();
 		SIZE = new CartesianPoint(INSTANCE.getWidth(), INSTANCE.getHeight());
 		KEYBOARD = INSTANCE.getKeyboard();
-		((StartGame) startingGameClass.getConstructor().newInstance()).start();
 	}
 
 	// METHODS

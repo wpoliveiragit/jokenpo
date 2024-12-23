@@ -1,7 +1,7 @@
 package br.com.wellington.game.jokenpo.engine;
 
 import br.com.wellington.game.jokenpo.utils.ClassUtils.SpriteData;
-import br.com.wellington.game.jokenpo.utils.CommonMethod;
+import br.com.pegasus.game.jokenpo.infra.config.CommonMethod;
 import br.com.wellington.game.jokenpo.utils.ConstantsUtils;
 import jplay.Sprite;
 import lombok.Getter;

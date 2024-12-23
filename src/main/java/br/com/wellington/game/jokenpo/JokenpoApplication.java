@@ -5,11 +5,12 @@ import br.com.wellington.game.jokenpo.game.JokenpoGame;
 
 public class JokenpoApplication {
 
-	/* Criado em 21/01/22 */
-	/* Alterado em 29/08/24 */
-
+	// Create: 21/01/22
+	// Update: 29/08/24
+	// Update:
 	public static void main(String[] args) throws Exception {
-		GameEngine.createEngine(JokenpoGame.class);
+		GameEngine.createEngine();
+		new JokenpoGame().start();
 	}
 
 }

@@ -1,9 +1,13 @@
-package br.com.wellington.game.jokenpo.utils;
+package br.com.pegasus.game.jokenpo.infra.config;
 
 import static javax.swing.JOptionPane.showMessageDialog;
 
 import br.com.wellington.game.jokenpo.engine.scoreboard.Scoreboard;
+import br.com.wellington.game.jokenpo.utils.ClassUtils;
+import br.com.wellington.game.jokenpo.utils.ConstantsUtils;
 import br.com.wellington.game.jokenpo.utils.ClassUtils.SpriteData;
+import br.com.wellington.game.jokenpo.utils.ConstantsUtils.Id;
+import br.com.wellington.game.jokenpo.utils.ConstantsUtils.Text;
 
 public class CommonMethod implements ConstantsUtils {
 

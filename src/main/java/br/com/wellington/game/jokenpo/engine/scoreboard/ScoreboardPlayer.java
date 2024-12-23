@@ -2,9 +2,9 @@ package br.com.wellington.game.jokenpo.engine.scoreboard;
 
 import java.awt.FontMetrics;
 
+import br.com.pegasus.game.jokenpo.domain.CartesianPoint;
 import br.com.wellington.game.jokenpo.engine.GameEngine;
 import br.com.wellington.game.jokenpo.engine.PlayerControl;
-import br.com.wellington.game.jokenpo.utils.ClassUtils.CartesianPoint;
 import jplay.Sprite;
 import lombok.Getter;
 import lombok.Setter;
