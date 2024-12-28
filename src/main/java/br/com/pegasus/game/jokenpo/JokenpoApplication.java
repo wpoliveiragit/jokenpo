@@ -1,7 +1,7 @@
-package br.com.wellington.game.jokenpo;
+package br.com.pegasus.game.jokenpo;
 
-import br.com.wellington.game.jokenpo.engine.GameEngine;
-import br.com.wellington.game.jokenpo.game.JokenpoGame;
+import br.com.pegasus.game.jokenpo.domain.core.GameCore;
+import br.com.pegasus.game.jokenpo.domain.core.GameEngine;
 
 public class JokenpoApplication {
 
@@ -10,7 +10,7 @@ public class JokenpoApplication {
 	// Update:
 	public static void main(String[] args) throws Exception {
 		GameEngine.createEngine();
-		new JokenpoGame().start();
+		new GameCore().start();
 	}
 
 }

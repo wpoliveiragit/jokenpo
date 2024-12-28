@@ -1,11 +1,11 @@
-package br.com.wellington.game.jokenpo.engine.scoreboard;
+package br.com.pegasus.game.jokenpo.infra.scoreboard;
 
 import java.awt.FontMetrics;
 
-import br.com.pegasus.game.jokenpo.domain.CartesianPoint;
-import br.com.wellington.game.jokenpo.engine.GameEngine;
-import br.com.wellington.game.jokenpo.engine.PlayerControl;
-import br.com.wellington.game.jokenpo.utils.ConstantsUtils;
+import br.com.pegasus.game.jokenpo.domain.core.GameEngine;
+import br.com.pegasus.game.jokenpo.domain.core.PlayerControl;
+import br.com.pegasus.game.jokenpo.domain.entity.CartesianPoint;
+import br.com.pegasus.game.jokenpo.util.constant.GameConstant;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -41,7 +41,7 @@ public class Scoreboard {
 
 	/** Verifica se ja foram todas as rodadas */
 	public boolean isEndGame() {
-		return round == ConstantsUtils.AMOUNT_ROUTES;
+		return round == GameConstant.AMOUNT_ROUTES;
 	}
 
 	/** Define como o desenho sera feiro na janela */

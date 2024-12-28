@@ -1,28 +1,30 @@
-package br.com.wellington.game.jokenpo.engine;
+package br.com.pegasus.game.jokenpo.domain.core;
 
-import br.com.wellington.game.jokenpo.utils.ClassUtils.SpriteData;
-import br.com.pegasus.game.jokenpo.infra.config.CommonMethod;
-import br.com.wellington.game.jokenpo.utils.ConstantsUtils;
+import br.com.pegasus.game.jokenpo.domain.entity.SpriteData;
+import br.com.pegasus.game.jokenpo.infra.method.appMethod;
+import br.com.pegasus.game.jokenpo.util.constant.GameConstant;
 import jplay.Sprite;
 import lombok.Getter;
 import lombok.Setter;
 
 public class PlayerControl {
 
+	private final String SPRITE_ROCK_PAPER_SCISSORS = GameConstant.Path.ROOT_PATH_FILES + "image/pedra_papel_tesoura.png";
+
 	private @Getter @Setter String name; // Nome do jogador
 	private @Getter Sprite sprite; // gif do personagem
 	private @Getter SpriteData spriteData;
 
-	private CommonMethod commonMethod2 = new CommonMethod();
+	private appMethod commonMethod = new appMethod();
 
 	public PlayerControl() {// cria um personagem para o jogo
-		sprite = new Sprite(ConstantsUtils.Path.SPRITE_ROCK_PAPER_SCISSORS, ConstantsUtils.AMOUNT_FRAME);
-		reset("Sem Nome");
+		sprite = new Sprite(SPRITE_ROCK_PAPER_SCISSORS, GameConstant.AMOUNT_FRAME);
+		init("Sem Nome");
 	}
 
-	public final void reset(String name) {
+	public final void init(String name) {
 		this.name = name;
-		spriteData = commonMethod2.getSpriteData(ConstantsUtils.Id.PAPER);
+		spriteData = commonMethod.getSpriteData(GameConstant.Id.PAPER);
 	}
 
 	/** Avanca um elemento */
@@ -41,7 +43,7 @@ public class PlayerControl {
 	}
 
 	private void setSprite(int id) {
-		spriteData = commonMethod2.getSpriteData(id);
+		spriteData = commonMethod.getSpriteData(id);
 		sprite.setSequence(spriteData.getX(), spriteData.getY());
 	}
 

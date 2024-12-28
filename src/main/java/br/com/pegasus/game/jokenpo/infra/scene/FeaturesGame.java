@@ -1,14 +1,14 @@
-package br.com.wellington.game.jokenpo.game;
+package br.com.pegasus.game.jokenpo.infra.scene;
 
 import static javax.swing.JOptionPane.showMessageDialog;
 
-import br.com.pegasus.game.jokenpo.infra.config.CommonMethod;
-import br.com.wellington.game.jokenpo.engine.GameEngine;
-import br.com.wellington.game.jokenpo.engine.PlayerControl;
-import br.com.wellington.game.jokenpo.engine.keyboard.GameKeyboard;
-import br.com.wellington.game.jokenpo.engine.keyboard.GameListenerKeyboard;
-import br.com.wellington.game.jokenpo.engine.scoreboard.Scoreboard;
-import br.com.wellington.game.jokenpo.utils.ConstantsUtils;
+import br.com.pegasus.game.jokenpo.domain.core.GameEngine;
+import br.com.pegasus.game.jokenpo.domain.core.PlayerControl;
+import br.com.pegasus.game.jokenpo.infra.keyboard.GameKeyboard;
+import br.com.pegasus.game.jokenpo.infra.keyboard.GameListenerKeyboard;
+import br.com.pegasus.game.jokenpo.infra.method.appMethod;
+import br.com.pegasus.game.jokenpo.infra.scoreboard.Scoreboard;
+import br.com.pegasus.game.jokenpo.util.constant.GameConstant;
 import lombok.Getter;
 
 public class FeaturesGame implements GameListenerKeyboard {
@@ -20,13 +20,13 @@ public class FeaturesGame implements GameListenerKeyboard {
 
 	protected boolean loop;
 
-	private CommonMethod commonMethod2 = new CommonMethod();
+	private appMethod commonMethod2 = new appMethod();
 
 	public FeaturesGame() {
 
 		player = new PlayerControl();
 		npcPlayer = new PlayerControl();
-		npcPlayer.setName(ConstantsUtils.Text.PLAYER_NPC_NAME);
+		npcPlayer.setName(GameConstant.Text.PLAYER_NPC_NAME);
 
 		keyboard = new GameKeyboard(this, GameEngine.getKeyboard());
 		scoreboard = new Scoreboard(player, npcPlayer);
@@ -35,7 +35,7 @@ public class FeaturesGame implements GameListenerKeyboard {
 	}
 
 	protected void load(String name) {
-		player.reset(name);
+		player.init(name);
 
 		scoreboard.reset();
 		scoreboard.setRound(1);
@@ -49,7 +49,7 @@ public class FeaturesGame implements GameListenerKeyboard {
 
 	@Override
 	public void keyEsc() {
-		showMessageDialog(null, ConstantsUtils.Text.KEY_ESC);
+		showMessageDialog(null, GameConstant.Text.KEY_ESC);
 		loop = false;
 	}
 
@@ -67,19 +67,19 @@ public class FeaturesGame implements GameListenerKeyboard {
 	public void keyEnter() {
 		if (player.getSpriteData().getWin() == npcPlayer.getSpriteData().getId()) {
 			// venceu a rodada
-			commonMethod2.showEndGameMessage(scoreboard, 1, 0, ConstantsUtils.Text.KEY_ENTER_WIN);
+			commonMethod2.showEndGameMessage(scoreboard, 1, 0, GameConstant.Text.KEY_ENTER_WIN);
 			endGame();
 			return;
 		}
 		if (player.getSpriteData().getLose() == npcPlayer.getSpriteData().getId()) {
 			// perdeu a rodada
-			commonMethod2.showEndGameMessage(scoreboard, 0, 1, ConstantsUtils.Text.KEY_ENTER_DEFEAT);
+			commonMethod2.showEndGameMessage(scoreboard, 0, 1, GameConstant.Text.KEY_ENTER_DEFEAT);
 			endGame();
 			return;
 		}
 		if (player.getSpriteData().getId() == npcPlayer.getSpriteData().getId()) {
 			// rodada empatada
-			showMessageDialog(null, ConstantsUtils.Text.KEY_ENTER_DRAW);
+			showMessageDialog(null, GameConstant.Text.KEY_ENTER_DRAW);
 		}
 	}
 

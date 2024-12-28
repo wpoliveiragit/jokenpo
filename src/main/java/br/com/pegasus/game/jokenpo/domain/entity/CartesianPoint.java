@@ -1,6 +1,7 @@
-package br.com.pegasus.game.jokenpo.domain;
+package br.com.pegasus.game.jokenpo.domain.entity;
 
 public class CartesianPoint {
+	
 	public double x;
 	public double y;
 

@@ -1,36 +1,40 @@
-package br.com.wellington.game.jokenpo.engine.keyboard;
+package br.com.pegasus.game.jokenpo.infra.keyboard;
 
 import jplay.Keyboard;
 
 public class GameKeyboard {
 
 	private Keyboard keyboard;
-	private GameListenerKeyboard keyboardGameListener;
+	private GameListenerKeyboard gameListenerKeyboard;
 
-	public GameKeyboard(GameListenerKeyboard keyboardGameListener, Keyboard keyboard) {
-		this.keyboardGameListener = keyboardGameListener;
+	public GameKeyboard(GameListenerKeyboard gameListenerKeyboard, Keyboard keyboard) {
+		this.gameListenerKeyboard = gameListenerKeyboard;
+		this.keyboard = keyboard;
+		config();
+	}
+
+	private void config() {
 		keyboard.addKey(Keyboard.LEFT_KEY);
 		keyboard.addKey(Keyboard.RIGHT_KEY);
 		keyboard.addKey(Keyboard.UP_KEY);
 		keyboard.addKey(Keyboard.DOWN_KEY);
-		this.keyboard = keyboard;
 	}
 
 	public void listener() {
 		if (keyboard.keyDown(Keyboard.ESCAPE_KEY)) {
-			keyboardGameListener.keyEsc();
+			gameListenerKeyboard.keyEsc();
 			return;
 		}
 		if (keyboard.keyDown(Keyboard.LEFT_KEY)) {
-			keyboardGameListener.keyLeft();
+			gameListenerKeyboard.keyLeft();
 			return;
 		}
 		if (keyboard.keyDown(Keyboard.RIGHT_KEY)) {
-			keyboardGameListener.keyHight();
+			gameListenerKeyboard.keyHight();
 			return;
 		}
 		if (keyboard.keyDown(Keyboard.ENTER_KEY)) {
-			keyboardGameListener.keyEnter();
+			gameListenerKeyboard.keyEnter();
 			return;
 		}
 	}

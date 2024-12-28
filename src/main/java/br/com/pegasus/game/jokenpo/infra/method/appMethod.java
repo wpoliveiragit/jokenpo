@@ -1,15 +1,14 @@
-package br.com.pegasus.game.jokenpo.infra.config;
+package br.com.pegasus.game.jokenpo.infra.method;
 
 import static javax.swing.JOptionPane.showMessageDialog;
 
-import br.com.wellington.game.jokenpo.engine.scoreboard.Scoreboard;
-import br.com.wellington.game.jokenpo.utils.ClassUtils;
-import br.com.wellington.game.jokenpo.utils.ConstantsUtils;
-import br.com.wellington.game.jokenpo.utils.ClassUtils.SpriteData;
-import br.com.wellington.game.jokenpo.utils.ConstantsUtils.Id;
-import br.com.wellington.game.jokenpo.utils.ConstantsUtils.Text;
+import br.com.pegasus.game.jokenpo.domain.entity.SpriteData;
+import br.com.pegasus.game.jokenpo.infra.scoreboard.Scoreboard;
+import br.com.pegasus.game.jokenpo.util.constant.GameConstant;
 
-public class CommonMethod implements ConstantsUtils {
+public class appMethod implements GameConstant {
+	
+	private static final String DEFAULT_PLAYER_NAME = "JOGADOR";
 
 	private SpriteData PAPER = new SpriteData(Id.PAPER, 0, 1, Id.SCISSORS, Id.ROCK, Id.ROCK, Id.SCISSORS);
 	private SpriteData ROCK = new SpriteData(Id.ROCK, 1, 2, Id.PAPER, Id.SCISSORS, Id.SCISSORS, Id.PAPER);
@@ -22,12 +21,12 @@ public class CommonMethod implements ConstantsUtils {
 	}
 
 	public String checkLengthName(String name) {
-		if (name.equals("")) { // nome em branco
-			return ConstantsUtils.Text.DEFAULT_PLAYER_NAME;
+		if (name.isBlank()) { // NOME EM BRANCO
+			return DEFAULT_PLAYER_NAME;
 		}
 
-		if (name.length() > SIZE_NAME) {// nome muito grande
-			return name.substring(0, ConstantsUtils.SIZE_NAME).toUpperCase();
+		if (name.length() > SIZE_NAME) {// NOME MUITO GRANDE
+			return name.substring(0, GameConstant.SIZE_NAME).toUpperCase();
 		}
 		return name.toUpperCase();
 	}

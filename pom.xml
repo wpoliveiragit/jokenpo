@@ -18,7 +18,7 @@
 	<description>Jogo demonstratico para uso do jplayv3 </description>
 
 	<properties>
-		<java.version>11</java.version>
+		<java.version>17</java.version>
 		<criado>21/01/22</criado>
 		<alterado>29/08/24</alterado>
 	</properties>
@@ -35,11 +35,11 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-starter-test</artifactId>-->
+<!--			<scope>test</scope>-->
+<!--		</dependency>-->
 	</dependencies>
 
 	<build>

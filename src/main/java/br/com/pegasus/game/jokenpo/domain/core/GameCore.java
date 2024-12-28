@@ -1,18 +1,18 @@
 
 /** O jogo e iniciado atravez da classe main.Main */
-package br.com.wellington.game.jokenpo.game;
+package br.com.pegasus.game.jokenpo.domain.core;
 
 import static javax.swing.JOptionPane.showInputDialog;
 
 import javax.swing.JOptionPane;
 
-import br.com.pegasus.game.jokenpo.infra.config.CommonMethod;
-import br.com.wellington.game.jokenpo.engine.GameEngine;
-import br.com.wellington.game.jokenpo.utils.ConstantsUtils;
+import br.com.pegasus.game.jokenpo.infra.method.appMethod;
+import br.com.pegasus.game.jokenpo.infra.scene.FeaturesGame;
+import br.com.pegasus.game.jokenpo.util.constant.GameConstant;
 
-public class JokenpoGame extends FeaturesGame {
+public class GameCore extends FeaturesGame {
 
-	private CommonMethod commonMethod = new CommonMethod();
+	private appMethod commonMethod = new appMethod();
 
 	public void start() {
 		while (true) {
@@ -25,7 +25,7 @@ public class JokenpoGame extends FeaturesGame {
 	}
 
 	private boolean mainMenu() {
-		String name = showInputDialog(null, ConstantsUtils.Text.MAIN_MENU, "JOKENPO", JOptionPane.QUESTION_MESSAGE);
+		String name = showInputDialog(null, GameConstant.Text.MAIN_MENU, "JOKENPO", JOptionPane.QUESTION_MESSAGE);
 		if (name == null) { // esc -> Encerra o jogo
 			return true;
 		}

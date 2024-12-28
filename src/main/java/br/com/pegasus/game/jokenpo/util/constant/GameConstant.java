@@ -1,8 +1,8 @@
-package br.com.wellington.game.jokenpo.utils;
+package br.com.pegasus.game.jokenpo.util.constant;
 
 import java.awt.Font;
 
-public interface ConstantsUtils {
+public interface GameConstant {
 
 	int SIZE_NAME = 8; // Tamanho do nome.
 	Font FONT = new Font("Comic Sans MS", Font.TRUETYPE_FONT, 35);// Fonte padrao de jogos
@@ -12,11 +12,9 @@ public interface ConstantsUtils {
 	interface Path {
 		String ROOT_PATH_FILES = "src/main/resources/";
 		String BACKGROUND = ROOT_PATH_FILES + "image/background.png";
-		String SPRITE_ROCK_PAPER_SCISSORS = ROOT_PATH_FILES + "image/pedra_papel_tesoura.png";
 	}
 
 	interface Text {
-		String DEFAULT_PLAYER_NAME = "JOGADOR";
 		String PLAYER_NPC_NAME = "NPC";
 		String KEY_ESC = "Esta partida foi cancelada";
 		String KEY_ENTER_WIN = "VITORIA";

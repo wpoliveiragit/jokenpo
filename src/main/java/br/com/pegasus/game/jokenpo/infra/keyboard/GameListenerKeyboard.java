@@ -1,4 +1,4 @@
-package br.com.wellington.game.jokenpo.engine.keyboard;
+package br.com.pegasus.game.jokenpo.infra.keyboard;
 
 public interface GameListenerKeyboard {
 

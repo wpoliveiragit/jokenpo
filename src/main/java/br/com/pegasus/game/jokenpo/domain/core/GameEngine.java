@@ -1,10 +1,10 @@
-package br.com.wellington.game.jokenpo.engine;
+package br.com.pegasus.game.jokenpo.domain.core;
 
 import java.awt.Color;
 import java.awt.FontMetrics;
 
-import br.com.pegasus.game.jokenpo.domain.CartesianPoint;
-import br.com.wellington.game.jokenpo.utils.ConstantsUtils;
+import br.com.pegasus.game.jokenpo.domain.entity.CartesianPoint;
+import br.com.pegasus.game.jokenpo.util.constant.GameConstant;
 import jplay.GameImage;
 import jplay.Keyboard;
 import jplay.Window;
@@ -18,9 +18,9 @@ public final class GameEngine {
 	private static Keyboard KEYBOARD;
 
 	public static final void createEngine() throws Exception {
-		BACKGROUND = new GameImage(ConstantsUtils.Path.BACKGROUND);
+		BACKGROUND = new GameImage(GameConstant.Path.BACKGROUND);
 		INSTANCE = new Window(BACKGROUND.width, BACKGROUND.height);
-		INSTANCE.setFont(ConstantsUtils.FONT);
+		INSTANCE.setFont(GameConstant.FONT);
 		FONT = INSTANCE.getGraphics().getFontMetrics();
 		SIZE = new CartesianPoint(INSTANCE.getWidth(), INSTANCE.getHeight());
 		KEYBOARD = INSTANCE.getKeyboard();

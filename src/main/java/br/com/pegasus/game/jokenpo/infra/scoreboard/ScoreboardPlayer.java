@@ -1,10 +1,10 @@
-package br.com.wellington.game.jokenpo.engine.scoreboard;
+package br.com.pegasus.game.jokenpo.infra.scoreboard;
 
 import java.awt.FontMetrics;
 
-import br.com.pegasus.game.jokenpo.domain.CartesianPoint;
-import br.com.wellington.game.jokenpo.engine.GameEngine;
-import br.com.wellington.game.jokenpo.engine.PlayerControl;
+import br.com.pegasus.game.jokenpo.domain.core.GameEngine;
+import br.com.pegasus.game.jokenpo.domain.core.PlayerControl;
+import br.com.pegasus.game.jokenpo.domain.entity.CartesianPoint;
 import jplay.Sprite;
 import lombok.Getter;
 import lombok.Setter;
