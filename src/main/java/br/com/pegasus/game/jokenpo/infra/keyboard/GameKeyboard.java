@@ -1,5 +1,6 @@
 package br.com.pegasus.game.jokenpo.infra.keyboard;
 
+import br.com.pegasus.game.jokenpo.infra.comp.JokenpoControlCenterComp;
 import jplay.Keyboard;
 
 public class GameKeyboard {
@@ -7,9 +8,9 @@ public class GameKeyboard {
 	private Keyboard keyboard;
 	private GameListenerKeyboard gameListenerKeyboard;
 
-	public GameKeyboard(GameListenerKeyboard gameListenerKeyboard, Keyboard keyboard) {
+	public GameKeyboard(GameListenerKeyboard gameListenerKeyboard, JokenpoControlCenterComp controlCenter) {
 		this.gameListenerKeyboard = gameListenerKeyboard;
-		this.keyboard = keyboard;
+		this.keyboard = controlCenter.getKeyboard();
 		config();
 	}
 

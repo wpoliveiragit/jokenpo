@@ -2,26 +2,28 @@ package br.com.pegasus.game.jokenpo.infra.scoreboard;
 
 import java.awt.FontMetrics;
 
-import br.com.pegasus.game.jokenpo.domain.core.GameEngine;
-import br.com.pegasus.game.jokenpo.domain.core.PlayerControl;
-import br.com.pegasus.game.jokenpo.domain.entity.CartesianPoint;
+import br.com.pegasus.game.jokenpo.infra.comp.JokenpoControlCenterComp;
+import br.com.pegasus.game.jokenpo.infra.entity.PlayerEntity;
+import br.com.pegasus.game.jokenpo.infra.util.JokenpoPointUtil;
 import jplay.Sprite;
 import lombok.Getter;
 import lombok.Setter;
 
-public class ScoreboardPlayer {
+public class JokenpoPlayerScoreboard {
 
-	private PlayerControl player;
+	private JokenpoControlCenterComp controlCenter = JokenpoControlCenterComp.INSTANCE;
+
+	private PlayerEntity player;
 	private @Setter @Getter int wins;
-	private CartesianPoint namePoint;
-	private CartesianPoint winPoint;
+	private JokenpoPointUtil namePoint;
+	private JokenpoPointUtil winPoint;
 	private int position;
 
-	public ScoreboardPlayer(PlayerControl player, int position) {
+	public JokenpoPlayerScoreboard(PlayerEntity player, int position) {
 		this.player = player;
 		this.position = position;
-		namePoint = new CartesianPoint();
-		winPoint = new CartesianPoint();
+		namePoint = new JokenpoPointUtil();
+		winPoint = new JokenpoPointUtil();
 		setScoreboardPlayer();
 	}
 
@@ -32,13 +34,13 @@ public class ScoreboardPlayer {
 
 	public void draw() {
 		player.draw();
-		GameEngine.drawText(player.getName(), namePoint);
-		GameEngine.drawText("" + wins, winPoint);
+		controlCenter.drawText(player.getName(), namePoint);
+		controlCenter.drawText("" + wins, winPoint);
 	}
 
 	private void setScoreboardPlayer() {
-		FontMetrics font = GameEngine.getFont();
-		CartesianPoint size = GameEngine.getSize();
+		FontMetrics font = controlCenter.getFont();
+		JokenpoPointUtil size = controlCenter.getSize();
 		Sprite sprite = player.getSprite();
 
 		int width = (size.getXInt() / 4) * position;
@@ -58,6 +60,5 @@ public class ScoreboardPlayer {
 		winPoint.x = width - (font.stringWidth("X") / 2);
 		winPoint.y = height + heightCenter + fontHeight * 2;
 	}
-	
 
 }

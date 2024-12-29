@@ -11,7 +11,7 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
-	<groupId>br.com.wellington</groupId>
+	<groupId>br.com.pegasus</groupId>
 	<artifactId>jokenpo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>jokenpo</name>
@@ -24,31 +24,56 @@
 	</properties>
 
 	<dependencies>
+
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
+			<groupId>br.com.pegasus.jplayV3</groupId>
+			<artifactId>jplayV3</artifactId>
+			<version>1.0.0</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<scope>provided</scope>
 		</dependency>
 
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.boot</groupId>-->
-<!--			<artifactId>spring-boot-starter-test</artifactId>-->
-<!--			<scope>test</scope>-->
-<!--		</dependency>-->
 	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.projectlombok</groupId>
+				<artifactId>lombok</artifactId>
+				<version>1.18.36</version>
+				<scope>provided</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-install-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>install-custom-jar</id>
+						<phase>initialize</phase>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+						<configuration>
+							<file>
+								${project.basedir}/src/main/resources/dependencies/jplayV3.jar</file>
+							<groupId>br.com.pegasus.jplayV3</groupId>
+							<artifactId>jplayV3</artifactId>
+							<version>1.0.0</version>
+							<packaging>jar</packaging>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
+
 
 </project>

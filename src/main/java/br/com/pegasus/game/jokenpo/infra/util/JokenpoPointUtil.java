@@ -1,15 +1,15 @@
-package br.com.pegasus.game.jokenpo.domain.entity;
+package br.com.pegasus.game.jokenpo.infra.util;
 
-public class CartesianPoint {
+public class JokenpoPointUtil {
 	
 	public double x;
 	public double y;
 
-	public CartesianPoint() {
+	public JokenpoPointUtil() {
 		init();
 	}
 
-	public CartesianPoint(int x, int y) {
+	public JokenpoPointUtil(int x, int y) {
 		this.x = x;
 		this.y = y;
 	}

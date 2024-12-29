@@ -1,16 +1,17 @@
 package br.com.pegasus.game.jokenpo;
 
-import br.com.pegasus.game.jokenpo.domain.core.GameCore;
-import br.com.pegasus.game.jokenpo.domain.core.GameEngine;
+import br.com.pegasus.game.jokenpo.app.game.JokenpoGame;
+import br.com.pegasus.game.jokenpo.infra.config.JokenpoConfig;
+import br.com.pegasus.game.jokenpo.update.jplay.framework.context.JPlayApplication;
 
 public class JokenpoApplication {
 
-	// Create: 21/01/22
-	// Update: 29/08/24
-	// Update:
 	public static void main(String[] args) throws Exception {
-		GameEngine.createEngine();
-		new GameCore().start();
+
+		JokenpoConfig jokenpoConfig = new JokenpoConfig();
+		
+		JPlayApplication.addBean(jokenpoConfig.createGamePort());
+		JPlayApplication.run(JokenpoGame.class);
 	}
 
 }

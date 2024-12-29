@@ -1,4 +1,4 @@
-package br.com.pegasus.game.jokenpo.domain.entity;
+package br.com.pegasus.game.jokenpo.infra.entity;
 
 import lombok.Getter;
 
