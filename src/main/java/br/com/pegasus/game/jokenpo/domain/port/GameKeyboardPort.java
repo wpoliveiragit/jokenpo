@@ -1,6 +1,6 @@
-package br.com.pegasus.game.jokenpo.infra.keyboard;
+package br.com.pegasus.game.jokenpo.domain.port;
 
-public interface GameListenerKeyboard {
+public interface GameKeyboardPort {
 
 	public void keyEsc();
 

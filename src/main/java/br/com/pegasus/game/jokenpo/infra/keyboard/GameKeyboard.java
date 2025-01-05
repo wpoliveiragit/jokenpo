@@ -1,15 +1,16 @@
 package br.com.pegasus.game.jokenpo.infra.keyboard;
 
+import br.com.pegasus.game.jokenpo.domain.port.GameKeyboardPort;
 import br.com.pegasus.game.jokenpo.infra.comp.JokenpoControlCenterComp;
 import jplay.Keyboard;
 
 public class GameKeyboard {
 
 	private Keyboard keyboard;
-	private GameListenerKeyboard gameListenerKeyboard;
+	private GameKeyboardPort gameKeyboardPort;
 
-	public GameKeyboard(GameListenerKeyboard gameListenerKeyboard, JokenpoControlCenterComp controlCenter) {
-		this.gameListenerKeyboard = gameListenerKeyboard;
+	public GameKeyboard(GameKeyboardPort gameKeyboardPort, JokenpoControlCenterComp controlCenter) {
+		this.gameKeyboardPort = gameKeyboardPort;
 		this.keyboard = controlCenter.getKeyboard();
 		config();
 	}
@@ -23,19 +24,19 @@ public class GameKeyboard {
 
 	public void listener() {
 		if (keyboard.keyDown(Keyboard.ESCAPE_KEY)) {
-			gameListenerKeyboard.keyEsc();
+			gameKeyboardPort.keyEsc();
 			return;
 		}
 		if (keyboard.keyDown(Keyboard.LEFT_KEY)) {
-			gameListenerKeyboard.keyLeft();
+			gameKeyboardPort.keyLeft();
 			return;
 		}
 		if (keyboard.keyDown(Keyboard.RIGHT_KEY)) {
-			gameListenerKeyboard.keyHight();
+			gameKeyboardPort.keyHight();
 			return;
 		}
 		if (keyboard.keyDown(Keyboard.ENTER_KEY)) {
-			gameListenerKeyboard.keyEnter();
+			gameKeyboardPort.keyEnter();
 			return;
 		}
 	}

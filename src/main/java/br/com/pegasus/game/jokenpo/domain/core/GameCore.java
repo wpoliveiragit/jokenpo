@@ -4,17 +4,17 @@ package br.com.pegasus.game.jokenpo.domain.core;
 
 import static javax.swing.JOptionPane.showMessageDialog;
 
+import br.com.pegasus.game.jokenpo.domain.port.GameKeyboardPort;
 import br.com.pegasus.game.jokenpo.domain.port.GamePort;
 import br.com.pegasus.game.jokenpo.infra.comp.JokenpoControlCenterComp;
 import br.com.pegasus.game.jokenpo.infra.constant.GameConstant;
 import br.com.pegasus.game.jokenpo.infra.entity.PlayerEntity;
 import br.com.pegasus.game.jokenpo.infra.keyboard.GameKeyboard;
-import br.com.pegasus.game.jokenpo.infra.keyboard.GameListenerKeyboard;
 import br.com.pegasus.game.jokenpo.infra.menu.DialogBox;
 import br.com.pegasus.game.jokenpo.infra.method.GameMethod;
 import br.com.pegasus.game.jokenpo.infra.scoreboard.JokenpoScoreboard;
 
-public class GameCore implements GamePort, GameListenerKeyboard {
+public class GameCore implements GamePort, GameKeyboardPort {
 
 	private JokenpoControlCenterComp controlCenter;
 	private GameKeyboard keyboard;
@@ -48,7 +48,7 @@ public class GameCore implements GamePort, GameListenerKeyboard {
 	}
 
 	private boolean mainMenu() {
-		String name = dialogBox.welcome();
+		String name = dialogBox.showBoxWelcome();
 		if (name == null) {
 			return true;
 		}
@@ -85,7 +85,7 @@ public class GameCore implements GamePort, GameListenerKeyboard {
 
 	@Override
 	public void keyEsc() {
-		dialogBox.gameCanceled();
+		dialogBox.showBoxCanceled();
 		loop = false;
 	}
 
@@ -124,22 +124,16 @@ public class GameCore implements GamePort, GameListenerKeyboard {
 		if (scoreboard.isEndGame()) {
 			scoreboard.setRound(scoreboard.getRound() - 1);
 			drawUpdate();
-			if (scoreboard.getPlayer().getWins() > scoreboard.getPlayerNPC().getWins()) {
-				showMessageDialogGame("Voce venceu o jogo com " + scoreboard.getPlayer().getWins() + " vitorias");
-				return;
+			int result = scoreboard.getPlayer().getWins() - scoreboard.getPlayerNPC().getWins();
+			if (result > 0) {
+				dialogBox.showBoxWin(scoreboard.getPlayer().getWins());
+			} else if (result < 0) {
+				dialogBox.showBoxLose(scoreboard.getPlayerNPC().getWins());
+			} else {
+				dialogBox.showBoxDraw();
 			}
-
-			if (scoreboard.getPlayer().getWins() < scoreboard.getPlayerNPC().getWins()) {
-				showMessageDialogGame("Voce perdeu o jogo com " + scoreboard.getPlayerNPC().getWins() + " derrotas");
-				return;
-			}
-			showMessageDialogGame("Voce empatou");
+			loop = false;
 		}
-	}
-
-	private void showMessageDialogGame(String msg) {
-		showMessageDialog(null, msg);
-		loop = false;
 	}
 
 }
