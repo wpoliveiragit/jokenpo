@@ -30,7 +30,7 @@ public interface GameConstant {
 	}
 
 	interface Menu {
-		String WINDOW_NAME = "JOKENPO";
+		String WINDOW_TITTLE = "JOKENPO";
 		String KEY_ESC = "Esta partida foi cancelada";
 		String KEY_ENTER_WIN = "VITORIA";
 		String KEY_ENTER_DEFEAT = "DERROTA";

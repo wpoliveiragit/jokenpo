@@ -1,6 +1,6 @@
 package br.com.pegasus.game.jokenpo;
 
-import br.com.pegasus.game.jokenpo.app.game.JokenpoGame;
+import br.com.pegasus.game.jokenpo.app.JokenpoGame;
 import br.com.pegasus.game.jokenpo.infra.config.JokenpoConfig;
 import br.com.pegasus.game.jokenpo.update.jplay.framework.context.JPlayApplication;
 

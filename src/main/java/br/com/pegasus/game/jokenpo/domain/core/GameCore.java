@@ -4,13 +4,13 @@ package br.com.pegasus.game.jokenpo.domain.core;
 
 import static javax.swing.JOptionPane.showMessageDialog;
 
+import br.com.pegasus.game.jokenpo.app.ui.DialogBoxUi;
 import br.com.pegasus.game.jokenpo.domain.port.GameKeyboardPort;
 import br.com.pegasus.game.jokenpo.domain.port.GamePort;
 import br.com.pegasus.game.jokenpo.infra.comp.JokenpoControlCenterComp;
 import br.com.pegasus.game.jokenpo.infra.constant.GameConstant;
 import br.com.pegasus.game.jokenpo.infra.entity.PlayerEntity;
 import br.com.pegasus.game.jokenpo.infra.keyboard.GameKeyboard;
-import br.com.pegasus.game.jokenpo.infra.menu.DialogBox;
 import br.com.pegasus.game.jokenpo.infra.method.GameMethod;
 import br.com.pegasus.game.jokenpo.infra.scoreboard.JokenpoScoreboard;
 
@@ -19,7 +19,7 @@ public class GameCore implements GamePort, GameKeyboardPort {
 	private JokenpoControlCenterComp controlCenter;
 	private GameKeyboard keyboard;
 	private boolean loop;
-	private DialogBox dialogBox;
+	private DialogBoxUi dialogBox;
 
 	private PlayerEntity player;
 	private PlayerEntity npcPlayer;
@@ -27,7 +27,7 @@ public class GameCore implements GamePort, GameKeyboardPort {
 
 	public GameCore() {
 		controlCenter = JokenpoControlCenterComp.INSTANCE;
-		dialogBox = new DialogBox();
+		dialogBox = new DialogBoxUi();
 		player = new PlayerEntity();
 		npcPlayer = new PlayerEntity();
 		npcPlayer.setName(GameConstant.Central.PLAYER_NPC_NAME);

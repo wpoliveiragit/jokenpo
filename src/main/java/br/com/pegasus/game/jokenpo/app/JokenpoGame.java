@@ -1,4 +1,4 @@
-package br.com.pegasus.game.jokenpo.app.game;
+package br.com.pegasus.game.jokenpo.app;
 
 import br.com.pegasus.game.jokenpo.domain.port.GamePort;
 import br.com.pegasus.game.jokenpo.update.jplay.framework.StartgGameSetup;
